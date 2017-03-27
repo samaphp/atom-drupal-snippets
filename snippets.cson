@@ -1,0 +1,37 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# An example snippet for all:
+# '*':
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.source.php':
+  'Event Log':
+    'prefix': 'EventLog'
+    'body': '// Save log details.\n$theLog = array();\n$theLog[\'type\'] = \'node\';\n$theLog[\'operation\'] = \'update\';\n$theLog[\'form_id\'] = \'FORM_ID\';\n$theLog[\'description\'] = \'DESCRIPTION\';\n$theLog[\'ref_char\'] = \'\';\n$theLog[\'ref_numeric\'] = \'\';\n$theLog[\'uid\'] = $user->uid;\n$theLog[\'info\'] = \'\';\nevent_log_insert($theLog);'
+  'Msg id for translation':
+    'prefix': 'msgid'
+    'body': 'msgid ""\nmsgstr ""'
+  'Drupal Hook Menu':
+    'prefix': 'hook_menu'
+    'body': '/**\n * Implement hook_menu().\n */\nfunction hook_menu(){\n\t$items[\'user/%user/profile\'] = array(\n\t\t\'title\' => \'Profile\',\n\t\t\'page callback\' => \'profile_user_page\',\n\t\t\'page arguments\' => array(1),\n\t\t\'access arguments\' => array(\'view published content\'),\n\t\t\'type\' => MENU_NORMAL_ITEM,\n\t);\n\t$items[\'admin/config/system/edit_example/edit/%edit_example\'] = array(\n\t\t\'title\' => t(\'Edit example\'),\n\t\t\'description\' => t(\'Example of edit\'),\n\t\t\'page callback\' => \'drupal_get_form\',\n\t\t\'page arguments\' => array(\'edit_example_form\', 5),\n\t\t\'access arguments\' => array(\'access administration pages\'),\n\t);\n\treturn $items;\n}'
+  'Drupal Hook Permission':
+    'prefix': 'hook_permission'
+    'body': '/**\n * Implement hook_permission().\n */\nfunction hook_permission() {\n\treturn array(\n\t\'administer my module\' => array(\n\t\t\'title\' => t(\'Administer my module\'),\n\t\t\'description\' => t(\'Perform administration tasks for my module.\'),\n\t),\n\t);\n}'
